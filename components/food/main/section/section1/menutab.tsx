@@ -9,19 +9,19 @@ export default function MenuTab() {
           href="/" 
           replace
         >
-          / Home
+          /Home
         </Link>
         <Link 
           className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
           href="/food/availableoffers"
         >
-          / Food_AvailableOffers
+          /Food_AvailableOffers
         </Link>
         <Link 
           className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
           href="/food/location"
         >
-          / Location
+          /Location
         </Link>
       </nav>
     </section>
