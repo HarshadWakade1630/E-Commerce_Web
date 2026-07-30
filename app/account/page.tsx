@@ -33,7 +33,7 @@ export default function Account() {
 
             {user ? (<Profile />) : 
                 <div>
-                    <Image src="/img/close.png" height={5} width={5} alt="closepng" className="invert h-6 w-6 cursor-pointer" onClick={() => {
+                    <Image src="https://res.cloudinary.com/dnqbr6fyr/image/upload/v1785433750/close_ae5nji.png" height={5} width={5} alt="closepng" className="invert h-6 w-6 cursor-pointer" onClick={() => {
                         router.back();
                     }} />
                     <div className='h-screen w-screen flex justify-between items-center'>
