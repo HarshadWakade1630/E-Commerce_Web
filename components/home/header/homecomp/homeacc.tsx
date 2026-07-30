@@ -9,7 +9,7 @@ export default function HomeAcc() {
     return (
         <>
             <div className="z-10 w-[100%] p-[10px] h-max">
-                <Link href="/account" onClick={() => {
+                <Link href="https://res.cloudinary.com/dnqbr6fyr/image/upload/v1785433742/user_vtawza.png" onClick={() => {
                     router.refresh();
                 }} className="inline-block text-center">
                     <Image src="/img/user.png" height={0} width={0} alt="userpng" className="cursor-pointer text-white h-4 w-auto sm:h-5 md:h-6 lg:h-7" />
