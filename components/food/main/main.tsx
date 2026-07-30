@@ -7,7 +7,7 @@ import PopularFoodScroll from "./section/section2/popularfoodscroll"
 export default function FoodMain() {
     return (
         <>
-            <div className="w-full bg-[#fef6f6] px-[10px] py-[2%]">
+            <div className="w-full bg-[#fef6f6] px-[10px] md:px-[20px] py-[2%]">
                 <section>
                     <MenuTab />
                     <FoodFilter />
