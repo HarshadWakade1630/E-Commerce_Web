@@ -1,0 +1,1 @@
+ALTER TABLE "popular_food_card" DROP COLUMN "section";

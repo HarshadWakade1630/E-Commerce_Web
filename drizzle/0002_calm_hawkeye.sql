@@ -1,0 +1,1 @@
+ALTER TABLE "pending_users" ALTER COLUMN "id" SET DATA TYPE varchar(255);

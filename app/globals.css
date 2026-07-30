@@ -1,0 +1,71 @@
+
+@font-face {
+  font-family: fontbold;
+  src: url(/fonts/FugazOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: fontlight;
+    src: url(/fonts/Zain-Light.ttf);
+}
+
+@font-face {
+    font-family: fontblack;
+    src: url(/fonts/Zain-Black.ttf);
+}
+
+@font-face {
+    font-family: fontmed;
+    src: url(/fonts/Zain-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: fontfortitle;
+  src: url(/fonts/BebasNeue-Regular.ttf);
+}
+
+@import "tailwindcss";
+
+@theme{
+  --font-1 : fontbold;
+  --font-2 : fontlight;
+  --font-3 : fontblack;
+  --font-4 : fontfortitle;
+  --font-med : fontmed;
+}
+
+@layer base {
+  /* *{
+  outline: 1px solid red;
+} */
+
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar{
+    display: none;
+  }
+  .no-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+}
+
+html{
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+body {width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header::-webkit-scrollbar {
+    display: none;
+}
