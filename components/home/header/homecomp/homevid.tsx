@@ -5,7 +5,7 @@ export default function HomeHeaderVid() {
             <div className="inset-0 absolute -z-10">
                 <video autoPlay loop muted playsInline disablePictureInPicture controlsList="nodownload"
                     className="absolute w-[100%] h-screen block pointer-events-none object-cover">
-                    <source src={'/vid/bgcompressed.mp4'} type="video/mp4" />
+                    <source src={'https://res.cloudinary.com/dnqbr6fyr/video/upload/v1785433610/bgcompressed_qlzqgi.mp4'} type="video/mp4" />
                 </video>
             </div>
         </>
