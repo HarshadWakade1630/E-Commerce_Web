@@ -1,19 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 Batataa
 
-## Getting Started
+Batataa is a modern full-stack food ordering web application built with **Next.js**, **TypeScript**, **PostgreSQL**, and **Drizzle ORM**. It provides a fast, secure, and responsive food ordering experience.
 
-First, run the development server:
+## 🚀 Features
+
+- User Authentication (JWT + Refresh Tokens)
+- OTP Email Verification
+- Browse & Filter Food Items
+- Add to Cart
+- Responsive UI
+- Secure API Routes
+
+## 🛠 Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- PostgreSQL
+- Drizzle ORM
+- JOSE (JWT)
+
+## 📦 Installation
 
 ```bash
+git clone <repository-url>
+cd batataa
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **http://localhost:3000** in your browser.
 
-this is shit
+## 👨‍💻 Author
+
+**Harsh Wakade**
