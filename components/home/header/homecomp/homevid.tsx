@@ -1,7 +1,7 @@
 export default function HomeHeaderVid() {
   return (
     <>
-      <div className="absolute inset-0 -z-10 overflow-hidden bg-black">
+      <div className="fixed inset-0 h-[100dvh] w-full -z-10 overflow-hidden bg-black">
         <video 
           autoPlay 
           loop 
@@ -9,7 +9,7 @@ export default function HomeHeaderVid() {
           playsInline 
           disablePictureInPicture 
           controlsList="nodownload"
-          className="absolute top-1/2 left-1/2 min-w-[101vw] min-h-[101vh] w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none scale-105"
+          className="absolute top-1/2 left-1/2 min-w-[102vw] min-h-[102dvh] w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none scale-105"
         >
           <source 
             src="https://res.cloudinary.com/dnqbr6fyr/video/upload/v1785433610/bgcompressed_qlzqgi.mp4" 
