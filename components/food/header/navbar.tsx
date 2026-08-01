@@ -6,7 +6,7 @@ export default function FoodNavbar() {
       <header className="bg-[#ce1f2c] h-[120px] sm:h-[160px] w-full rounded-b-[15px]">
         <div className="header-container h-full w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-[3%] pt-[3%] py-[1%]">
           
-          <div className="logo mx-0 sm:mx-[8px] my-1 sm:my-[15px] text-white font-4 text-2xl xs:text-[1.75rem] sm:text-4xl tracking-[2px] font-bold cursor-default self-start">
+          <div className="logo mx-0 sm:mx-[8px] my-1 sm:my-[15px] text-white font-4 text-3xl xs:text-[1.75rem] sm:text-4xl tracking-[2px] font-bold cursor-default self-start">
             Food & Restaurants .BL
           </div>
 
