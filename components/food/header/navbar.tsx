@@ -3,22 +3,22 @@ import Link from "next/link";
 export default function FoodNavbar() {
   return (
     <>
-      <header className="bg-[#ce1f2c] h-[120px] sm:h-[160px] w-full rounded-b-[15px]">
-        <div className="header-container h-full w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 sm:px-[3%] pt-3 pb-0 sm:py-[1%]">
+      <header className="bg-[#ce1f2c] h-[152px] sm:h-[160px] w-full rounded-b-[15px]">
+        <div className="header-container h-full w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-[3%] pt-[3%] pb-2 sm:py-[1%]">
           
-          <div className="logo mx-0 sm:mx-[8px] my-0 sm:my-[15px] text-white font-4 text-3xl sm:text-4xl tracking-wider font-bold cursor-default self-start">
+          <div className="logo mx-0 sm:mx-[8px] my-1 sm:my-[15px] text-white font-4 text-[2rem] sm:text-4xl tracking-[2px] font-bold cursor-default self-start">
             Food & Restaurants .BL
           </div>
 
-          <div className="w-full sm:w-auto flex items-end justify-end sm:self-auto p-0 m-0">
-            <nav className="flex text-white p-0 m-0">
-              <Link className="mr-4 sm:mr-[30px] p-0 m-0 text-[11px] sm:text-sm tracking-tight sm:tracking-normal font-medium" href="/food/restaurants">
+          <div className="h-full flex items-end self-end sm:self-auto pb-2 sm:pb-0">
+            <nav className="flex text-white m-0 p-0">
+              <Link className="mr-[22px] sm:mr-[30px] p-0 text-[11px] sm:text-sm" href="/food/restaurants">
                 Restaurants
               </Link>
-              <Link className="mr-4 sm:mr-[30px] p-0 m-0 text-[11px] sm:text-sm tracking-tight sm:tracking-normal font-medium" href="/food/myorders">
+              <Link className="mr-[22px] sm:mr-[30px] p-0 text-[11px] sm:text-sm" href="/food/myorders">
                 My Orders
               </Link>
-              <Link className="mr-0 sm:mr-[30px] p-0 m-0 text-[11px] sm:text-sm tracking-tight sm:tracking-normal font-medium" href="/account">
+              <Link className="mr-0 sm:mr-[30px] p-0 text-[11px] sm:text-sm" href="/account">
                 Account
               </Link>
             </nav>
