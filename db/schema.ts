@@ -54,3 +54,14 @@ export const popularFoodCard = pgTable("popular_food_card",
   img:text("img").notNull(),
   }
 );
+
+
+export const foodcards = pgTable("foodcards", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description").notNull(),
+  price: integer("price").notNull(),
+  image: text("image").notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
