@@ -1,7 +1,7 @@
 export default function HomeHeaderVid() {
   return (
     <>
-      <div className="absolute inset-0 h-[100dvh] sm:h-screen w-full -z-10 overflow-hidden bg-black">
+      <div className="absolute inset-0 h-full w-full -z-10 overflow-hidden bg-black">
         <video 
           autoPlay 
           loop 
