@@ -10,15 +10,15 @@ export default function FoodNavbar() {
             Food & Restaurants .BL
           </div>
 
-          <div className="h-full flex items-end self-end sm:self-auto pb-2 sm:pb-0">
+          <div className="h-full flex items-end self-end sm:self-auto pb-[0.5] sm:pb-0">
             <nav className="flex text-white">
-              <Link className="mr-4 sm:mr-[30px] pb-1.5 sm:pb-[5px] text-xs sm:text-sm" href="/food/restaurants">
+              <Link className="mr-4 sm:mr-[30px] pb-[0.5] sm:pb-[5px] text-xs sm:text-sm" href="/food/restaurants">
                 Restaurants
               </Link>
-              <Link className="mr-4 sm:mr-[30px] pb-1.5 sm:pb-[5px] text-xs sm:text-sm" href="/food/myorders">
+              <Link className="mr-4 sm:mr-[30px] pb-[0.5] sm:pb-[5px] text-xs sm:text-sm" href="/food/myorders">
                 My Orders
               </Link>
-              <Link className="mr-0 sm:mr-[30px] pb-1.5 sm:pb-[5px] text-xs sm:text-sm" href="/account">
+              <Link className="mr-0 sm:mr-[30px] pb-[0.5] sm:pb-[5px] text-xs sm:text-sm" href="/account">
                 Account
               </Link>
             </nav>
