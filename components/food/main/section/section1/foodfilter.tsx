@@ -1,3 +1,4 @@
+'use client'
 export default function FoodFilter() {
   const scrollToSection = (id: string): void => {
     const element = document.getElementById(id);
