@@ -6,7 +6,7 @@ export default function MenuTab() {
       <nav className="menulink flex flex-wrap items-center gap-x-2 gap-y-1 w-full">
         <Link 
           className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
-          href="/" 
+          href="/"
           replace
         >
           /Home
