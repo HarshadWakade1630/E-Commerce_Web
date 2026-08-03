@@ -16,7 +16,7 @@ export default async function FoodMain() {
             <div className="w-fullbg-[#fef6f6] px-[10px] md:px-[20px] py-[2%]">
                 <section>
                     <MenuTab />
-                    <FoodFilter />
+                    <FoodFilter sections={sections} />
                     <SearchSection />
                 </section>
                 <section>
