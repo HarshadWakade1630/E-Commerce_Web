@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -36,7 +34,7 @@ export default function PopularFoodScroll() {
 
   return (
     <>
-      <section className="py-6">
+      <section className="py-6" id="atf">
         <h2 className="mb-3.5 text-[20px] font-semibold text-gray-900">Popular Food Items</h2>
 
         <div className="flex gap-4 overflow-x-auto overflow-y-hidden scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="popularfood">
