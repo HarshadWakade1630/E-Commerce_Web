@@ -6,8 +6,8 @@ export default function TFooter() {
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Company</h4>
                     <a href="/footer/about" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">About Us</a>
-                    <a href="/footer/team" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Careers</a>
-                    <a href="#" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Team</a>
+                    <a href="#" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Careers</a>
+                    <a href="/footer/team" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Team</a>
                 </div>
 
                 <div className="footer-column">
