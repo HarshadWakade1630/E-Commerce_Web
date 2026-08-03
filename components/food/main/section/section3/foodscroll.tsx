@@ -30,7 +30,9 @@ export default function FoodCard({
         <h3 className="text-[15px] font-semibold">{name}</h3>
 
         <p className="mt-1 line-clamp-2 text-sm text-gray-500">
-          {description}
+          {description.length > 30
+    ? description.slice(0, 30) + "..."
+    : description}
         </p>
 
         <div className="mt-4 flex items-center justify-between">
