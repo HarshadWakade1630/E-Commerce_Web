@@ -63,5 +63,7 @@ export const foodcards = pgTable("foodcards", {
   price: integer("price").notNull(),
   image: text("image").notNull(),
   category: varchar("category", { length: 100 }).notNull(),
+  section: varchar("section", { length: 100 }).notNull(),
+  subsection: varchar("subsection", { length: 100 }).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
