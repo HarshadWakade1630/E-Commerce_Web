@@ -43,7 +43,6 @@ export default async function FoodMain() {
 ))}
 
             </div>
-
         </>
     )
 }
