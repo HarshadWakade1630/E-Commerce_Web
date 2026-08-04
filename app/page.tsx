@@ -1,4 +1,5 @@
-
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 import HomeHeader from "@/components/home/header/header";
 import HomeSection from "@/components/home/main/section";
 import HomeFooter from "@/components/home/footer/footer";
