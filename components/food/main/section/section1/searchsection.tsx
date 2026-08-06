@@ -1,6 +1,6 @@
 export default function SearchSection() {
   return (
-    <section className="search-section w-full bg-white p-5 sm:p-7 md:p-[40px] rounded-b-xl sm:rounded-b-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] max-w-[1920px] mx-auto">
+    <section id="food-main" className="search-section w-full bg-white p-5 sm:p-7 md:p-[40px] rounded-b-xl sm:rounded-b-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] max-w-[1920px] mx-auto">
       <h1 className="text-xl sm:text-2xl md:text-[28px] font-bold mb-4 sm:mb-5 text-gray-900 tracking-tight">
         Discover the best food near you
       </h1>
