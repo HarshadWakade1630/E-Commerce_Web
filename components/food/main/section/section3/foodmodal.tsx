@@ -48,7 +48,7 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
   const totalPrice = (item.price * quantity).toFixed(2);
 
   return (
-    <div className="fixed inset-0 z-1000 flex items-end justify-center p-0 sm:items-center sm:p-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4">
       {/* Darkened Blur Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity touch-none"
@@ -69,8 +69,8 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
           ✕
         </button>
 
-        {/* Scrollable Body Content */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+        {/* Scrollable Body Content (Scrollbar Hidden Cross-Browser) */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           
           {/* Food Image */}
           <div className="relative h-44 w-full overflow-hidden rounded-xl sm:h-56">
@@ -106,11 +106,9 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
           </div>
         </div>
 
-        {/* Sticky Responsive Footer */}
+        {/* Sticky Footer */}
         <div className="sticky bottom-0 border-t border-gray-100 bg-white p-4 sm:p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            
-            {/* Quantity Controls & Price */}
             <div className="flex items-center justify-between sm:justify-start sm:gap-4">
               <div className="flex items-center rounded-lg border border-gray-200 bg-gray-50">
                 <button
@@ -137,7 +135,6 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
               </span>
             </div>
 
-            {/* Action Buttons */}
             <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-2">
               <button
                 type="button"
@@ -152,7 +149,6 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
                 Add to Cart
               </button>
             </div>
-
           </div>
         </div>
 
