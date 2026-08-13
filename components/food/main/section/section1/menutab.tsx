@@ -1,3 +1,4 @@
+import UserLocation from "@/components/food/location/userlocation";
 import Link from "next/link";
 
 export default function MenuTab() {
@@ -21,7 +22,7 @@ export default function MenuTab() {
           className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
           href="/food/location"
         >
-          /Location
+          /<UserLocation/>
         </Link>
       </nav>
     </section>
