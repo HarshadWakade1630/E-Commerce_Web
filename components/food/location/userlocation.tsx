@@ -5,18 +5,24 @@ import { useEffect, useState } from "react";
 export default function UserLocation() {
   const [location, setLocation] = useState("No location");
   const [loading, setLoading] = useState(false);
+  const [coordinates, setCoordinates] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
 
   useEffect(() => {
-    if (!navigator.geolocation) {
-      return;
-    }
+    if (!navigator.geolocation) return;
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        // User allowed location
         setLoading(true);
 
         const { latitude, longitude } = position.coords;
+
+        setCoordinates({
+          latitude,
+          longitude,
+        });
 
         try {
           const response = await fetch(
@@ -31,18 +37,16 @@ export default function UserLocation() {
 
           setLocation(data.location);
         } catch (error) {
-          console.error("Location error:", error);
+          console.error(error);
           setLocation("No location");
         } finally {
           setLoading(false);
         }
       },
       (error) => {
-        console.error("Geolocation error:", error);
-
-        // Permission denied or location unavailable
-        setLoading(false);
+        console.error(error);
         setLocation("No location");
+        setLoading(false);
       },
       {
         enableHighAccuracy: true,
@@ -52,9 +56,25 @@ export default function UserLocation() {
     );
   }, []);
 
+  const openMaps = () => {
+    if (!coordinates) return;
+
+    const { latitude, longitude } = coordinates;
+
+    window.open(
+      `https://www.google.com/maps?q=${latitude},${longitude}`,
+      "_blank"
+    );
+  };
+
   return (
-    <>
-    {loading ? "Loading..." : location}
-    </>
+    <button
+      type="button"
+      onClick={openMaps}
+      disabled={!coordinates}
+      className="cursor-pointer text-gray-800 hover:text-red-600 disabled:cursor-default"
+    >
+      {loading ? "Loading..." : location}
+    </button>
   );
 }

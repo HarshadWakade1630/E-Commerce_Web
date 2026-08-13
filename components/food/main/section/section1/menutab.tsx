@@ -4,26 +4,27 @@ import Link from "next/link";
 export default function MenuTab() {
   return (
     <section className="menutab h-max w-full">
-      <nav className="menulink flex flex-wrap items-center gap-x-2 gap-y-1 w-full">
-        <Link 
-          className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
+      <nav className="flex w-full flex-wrap items-center gap-x-2 gap-y-1">
+
+        <Link
+          className="text-[10px] tracking-[1px] text-[#4b4b4b] transition-colors hover:text-[#961313]"
           href="/"
           replace
         >
           /Home
         </Link>
-        <Link 
-          className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
+
+        <Link
+          className="text-[10px] tracking-[1px] text-[#4b4b4b] transition-colors hover:text-[#961313]"
           href="/food/availableoffers"
         >
           /Food_AvailableOffers
         </Link>
-        <Link 
-          className="text-[#4b4b4b] tracking-[1px] text-[10px] hover:text-[#961313] transition-colors" 
-          href="/food/location"
-        >
-          /<UserLocation/>
-        </Link>
+
+        <span className="text-[10px] tracking-[1px] text-[#4b4b4b]">
+          /<UserLocation />
+        </span>
+
       </nav>
     </section>
   );
