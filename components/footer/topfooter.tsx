@@ -5,16 +5,16 @@ export default function TFooter() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-[40px]">
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Company</h4>
-                    <a href="/food/footer/about" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">About Us</a>
-                    <a href="/foodfooter/careers" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Careers</a>
-                    <a href="/food/footer/team" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Team</a>
+                    <a href="/footer/about" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">About Us</a>
+                    <a href="footer/careers" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Careers</a>
+                    <a href="/footer/team" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Team</a>
                 </div>
 
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Help</h4>
-                    <a href="/food/footer/support" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Support</a>
-                    <a href="/food/footer/FAQs" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">FAQs</a>
-                    <a href="/food/footer/contact" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Contact</a>
+                    <a href="/footer/support" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Support</a>
+                    <a href="/footer/FAQs" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">FAQs</a>
+                    <a href="/footer/contact" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Contact</a>
                 </div>
 
                 <div className="footer-column">
@@ -25,9 +25,9 @@ export default function TFooter() {
 
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Legal</h4>
-                    <a href="/food/footer/p_p" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Privacy Policy</a>
-                    <a href="/food/footer/terms" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Terms</a>
-                    <a href="/food/footer/security" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Security</a>
+                    <a href="/footer/p_p" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Privacy Policy</a>
+                    <a href="/footer/terms" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Terms</a>
+                    <a href="/footer/security" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Security</a>
                 </div>
             </div>
 
