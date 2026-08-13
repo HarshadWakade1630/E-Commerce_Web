@@ -46,7 +46,7 @@ export default function FAQPage() {
 
           <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg">
             Find quick answers to the questions we receive most often. If you
-            can't find what you're looking for, feel free to contact our support
+            can`t find what you`re looking for, feel free to contact our support
             team.
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function FAQPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-gray-700">
-            If your question isn't answered here, our support team is always
+            If your question isn`t answered here, our support team is always
             happy to help. Visit the Support or Contact page and send us your
             query.
           </p>
@@ -92,7 +92,7 @@ export default function FAQPage() {
       <section className="border-t border-red-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 text-center">
           <blockquote className="text-lg italic leading-8 text-gray-700 sm:text-xl">
-            Every question helps us improve. We're committed to making your
+            Every question helps us improve. We`re committed to making your
             experience as simple and enjoyable as possible.
           </blockquote>
 
