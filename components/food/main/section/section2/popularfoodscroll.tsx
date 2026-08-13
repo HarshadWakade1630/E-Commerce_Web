@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ChaoticOrbit from "@/components/common/loading";
 
 interface Food {
   id: number;
@@ -30,7 +31,7 @@ export default function PopularFoodScroll() {
     }
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <h1><ChaoticOrbit/></h1>;
 
   return (
     <>

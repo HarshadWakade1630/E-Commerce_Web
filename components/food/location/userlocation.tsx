@@ -74,7 +74,7 @@ export default function UserLocation() {
       disabled={!coordinates}
       className="cursor-pointer text-gray-800 hover:text-red-600 disabled:cursor-default"
     >
-      {loading ? "Loading..." : location}
+      {loading ? "Accessing.." : location}
     </button>
   );
 }
