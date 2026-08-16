@@ -174,6 +174,23 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
         {/* Dropdown Results */}
         {query.trim() && (
           <div className="absolute left-0 top-[60px] z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
+            {/* Header with conditional Back Button */}
+            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5 bg-gray-50/50">
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  setSelectedIndex(-1);
+                }}
+                className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-[#ce1f2c] transition cursor-pointer"
+              >
+                <span>←</span> Back
+              </button>
+              <span className="text-xs text-gray-400 font-medium">
+                {results.length} result{results.length !== 1 ? "s" : ""}
+              </span>
+            </div>
+
             {results.length === 0 ? (
               <div className="px-5 py-6 text-center text-sm text-gray-500">
                 No food found matching &quot;{query}&quot;
