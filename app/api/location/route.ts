@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-
     const lat = searchParams.get("lat");
     const lon = searchParams.get("lon");
 
@@ -14,44 +13,51 @@ export async function GET(request: Request) {
       );
     }
 
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/reverse?lat=${encodeURIComponent(
-        lat
-      )}&lon=${encodeURIComponent(lon)}&format=json&addressdetails=1`,
-      {
-        headers: {
-          "User-Agent": "Batataa-Food-App/1.0",
-        },
-      }
-    );
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 4000);
 
-    if (!response.ok) {
-      throw new Error("Reverse geocoding failed");
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${encodeURIComponent(
+          lat
+        )}&lon=${encodeURIComponent(lon)}&format=json&addressdetails=1`,
+        {
+          headers: {
+            "User-Agent": "FoodAppLocationService/1.0",
+          },
+          signal: controller.signal,
+          cache: "no-store",
+        }
+      );
+
+      if (!response.ok) throw new Error("Geocoding failed");
+
+      const data = await response.json();
+      const addr = data.address || {};
+
+      const city =
+        addr.city ||
+        addr.town ||
+        addr.village ||
+        addr.suburb ||
+        addr.municipality ||
+        addr.county ||
+        "Nearby location";
+
+      const state = addr.state || "";
+
+      return NextResponse.json({
+        location: state ? `${city}, ${state}` : city,
+        latitude: Number(lat),
+        longitude: Number(lon),
+      });
+    } finally {
+      clearTimeout(timeout);
     }
-
-    const data = await response.json();
-
-    const address = data.address;
-
-    const location =
-      address.city ||
-      address.town ||
-      address.village ||
-      address.suburb ||
-      "Unknown location";
-
-    const state = address.state || "";
-
-    return NextResponse.json({
-      location: state ? `${location}, ${state}` : location,
-      latitude: lat,
-      longitude: lon,
-    });
   } catch (error) {
-    console.error("Location API error:", error);
-
+    console.error("Reverse geocoding error:", error);
     return NextResponse.json(
-      { error: "Unable to determine location" },
+      { location: "Nearby location", error: "Geocoding service unavailable" },
       { status: 500 }
     );
   }
