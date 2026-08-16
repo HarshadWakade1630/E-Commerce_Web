@@ -1,8 +1,8 @@
 import FoodFooter from "@/components/food/footer/footer";
 import FoodNavbar from "@/components/food/header/navbar";
 import FoodMain from "@/components/food/main/main";
-import BackToTop from "@/components/common/backtotop";
 import StickyNavbarController from "@/components/food/header/stickynavbarcontroller";
+import BackToTop from "@/components/common/backtotop";
 
 export default function Food() {
    return (
@@ -11,7 +11,7 @@ export default function Food() {
       <FoodNavbar />
       <FoodMain />
       <FoodFooter />
-      <BackToTop />
+      <BackToTop/>
     </div>
   );
 }
