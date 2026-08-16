@@ -20,7 +20,7 @@ export default function MenuTab() {
           className="text-[10px] tracking-[1px] text-[#4b4b4b] transition-colors hover:text-[#961313]"
           href="/food/availableoffers"
         >
-          /Food_AvailableOffers
+          /AvailableOffers
         </Link>
 
         <span className="text-[10px] tracking-[1px] text-[#4b4b4b]">
