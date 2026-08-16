@@ -7,9 +7,9 @@ export default function FoodNavbar() {
         <div className="header-container h-full w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-[3%] pt-[3%] py-[1%]">
 
           {/* Logo */}
-          <div className="logo mx-0 sm:mx-[8px] my-1 sm:my-[15px] text-white font-4 text-3xl xs:text-[1.75rem] sm:text-4xl tracking-wider font-bold cursor-default self-start flex flex-row items-baseline whitespace-nowrap gap-2">
+          <div className="logo mx-0 sm:mx-[8px] my-1 sm:my-[15px] text-white font-4 text-4xl xs:text-5xl sm:text-6xl tracking-[2px] font-bold cursor-default self-start flex flex-row items-baseline whitespace-nowrap gap-2">
             <span>Batataa</span>
-            <p className="inline-block text-xl sm:text-2xl tracking-wider font-normal">
+            <p className="inline-block text-2xl sm:text-3xl tracking-wider font-normal">
               Food Limited
             </p>
           </div>
