@@ -18,6 +18,8 @@ interface SearchSectionProps {
   foods?: Food[];
 }
 
+const QUICK_SEARCH_TAGS = ["Pizza", "Biryani", "Burger", "Paneer", "Sandwich"];
+
 export default function SearchSection({ foods = [] }: SearchSectionProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -30,7 +32,6 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
 
     return foods
       .filter((food) => {
-        // Build a dedicated search string containing ONLY the allowed fields
         const searchableText = [
           food.name,
           food.price,
@@ -42,19 +43,18 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
           .join(" ")
           .toLowerCase();
 
-        // Strictly check if the query exists ONLY in the allowed fields
         return searchableText.includes(search);
       })
       .slice(0, 8);
   }, [query, foods]);
 
-  const handleSearch = () => {
-    const search = query.trim();
-    if (!search) return;
+  const handleSearch = (searchTerm?: string) => {
+    const finalQuery = (searchTerm || query).trim();
+    if (!finalQuery) return;
 
     setQuery("");
     setSelectedIndex(-1);
-    router.push(`/food/search?q=${encodeURIComponent(search)}`);
+    router.push(`/food/search?q=${encodeURIComponent(finalQuery)}`);
   };
 
   const handleResultClick = (food: Food) => {
@@ -119,17 +119,31 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
           }}
           className="flex items-center gap-2 sm:gap-3"
         >
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setSelectedIndex(-1);
-            }}
-            onKeyDown={handleKeyDown}
-            placeholder="Search by name, category, section, price..."
-            className="h-12 w-full min-w-0 flex-1 rounded-xl border border-[#ddd] px-4 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-[#ce1f2c] sm:h-14 sm:text-base"
-          />
+          <div className="relative flex-1">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setSelectedIndex(-1);
+              }}
+              onKeyDown={handleKeyDown}
+              placeholder="Search by name, category, section, price..."
+              className="h-12 w-full rounded-xl border border-[#ddd] pl-4 pr-10 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-[#ce1f2c] sm:h-14 sm:text-base"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  setSelectedIndex(-1);
+                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 cursor-pointer"
+              >
+                ✕
+              </button>
+            )}
+          </div>
 
           <button
             type="submit"
@@ -139,9 +153,27 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
           </button>
         </form>
 
+        {/* Popular Quick Filter Pills */}
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+          <span className="font-medium text-gray-400">Popular:</span>
+          {QUICK_SEARCH_TAGS.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              onClick={() => {
+                setQuery(tag);
+                handleSearch(tag);
+              }}
+              className="rounded-full bg-gray-100 px-3 py-1 font-medium text-gray-600 transition hover:bg-[#fef6f6] hover:text-[#ce1f2c] cursor-pointer"
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+
         {/* Dropdown Results */}
         {query.trim() && (
-          <div className="absolute left-0 top-full z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
+          <div className="absolute left-0 top-[60px] z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
             {results.length === 0 ? (
               <div className="px-5 py-6 text-center text-sm text-gray-500">
                 No food found matching &quot;{query}&quot;
