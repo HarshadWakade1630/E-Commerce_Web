@@ -67,7 +67,7 @@ export default function FoodCard({
         {/* Compact Bottom Bar */}
         <div className="mt-2.5 flex items-center justify-between border-t border-gray-100 pt-2">
           <span className="text-base font-bold text-[#ce1f2c]">
-            ₹{price}
+            ${price}
           </span>
 
           <button
