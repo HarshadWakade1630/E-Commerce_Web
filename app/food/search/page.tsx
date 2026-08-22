@@ -443,7 +443,7 @@ function SearchResultsContent() {
 
                                         {/* Price */}
                                         <span className="text-lg font-bold text-[#ce1f2c]">
-                                            ₹{food.price}
+                                            ${food.price}
                                         </span>
 
                                         {/* Add Button */}
