@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import ChaoticOrbit from "@/components/common/loading";
 
 interface Food {
   id: number;
@@ -23,7 +24,7 @@ const QUICK_SEARCH_TAGS = ["Pizza", "Biryani", "Burger", "Paneer", "Sandwich"];
 export default function SearchSection({ foods = [] }: SearchSectionProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
-  const [isPending, startTransition] = useTransition(); // Tracks page load state
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +57,6 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
     setQuery("");
     setSelectedIndex(-1);
 
-    // Wrap routing inside startTransition so isPending stays true until route loads
     startTransition(() => {
       router.push(`/food/search?q=${encodeURIComponent(finalQuery)}`);
     });
@@ -112,11 +112,11 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
       id="food-main"
       className="relative mx-auto w-full max-w-[1920px] rounded-xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:rounded-2xl sm:p-7 md:p-[40px]"
     >
-      {/* Global Loading Overlay inside Search Section */}
+      {/* Global Loading Overlay with Custom ChaoticOrbit Loader */}
       {isPending && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center rounded-xl bg-white/80 backdrop-blur-sm sm:rounded-2xl">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#ce1f2c] border-t-transparent" />
-          <p className="mt-3 text-sm font-semibold text-gray-700">
+          <ChaoticOrbit />
+          <p className="mt-2 text-sm font-semibold text-gray-700">
             Searching for delicious food...
           </p>
         </div>
@@ -167,10 +167,12 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
             className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#ce1f2c] px-5 text-sm font-semibold text-white transition cursor-pointer hover:bg-[#cc2f3c] disabled:opacity-50 sm:h-14 sm:px-8 sm:text-base"
           >
             {isPending ? (
-              <>
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              <span className="flex items-center gap-2">
+                <span className="scale-75">
+                  <ChaoticOrbit />
+                </span>
                 <span>Loading...</span>
-              </>
+              </span>
             ) : (
               "Search"
             )}
