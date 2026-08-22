@@ -49,7 +49,7 @@ export default function FoodCard({
 
         {/* Category Badge Overlay */}
         {category && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-gray-800 shadow-md backdrop-blur-md">
+          <span className="absolute left-3 top-3 rounded-full bg-red-50/95 px-3 py-1 text-xs font-bold text-[#ce1f2c] shadow-sm backdrop-blur-md ring-1 ring-red-200/60">
             {category}
           </span>
         )}
@@ -57,14 +57,14 @@ export default function FoodCard({
 
       {/* Content */}
       <div className="p-4">
-        {/* Food Name */}
-        <h3 className="line-clamp-1 text-lg font-bold text-gray-900">
+        {/* Food Name - Prominent Title */}
+        <h3 className="line-clamp-1 text-lg font-bold text-gray-900 tracking-tight">
           {name}
         </h3>
 
-        {/* Description */}
+        {/* Description - Strictly 1 Line & Small Text */}
         {description && (
-          <p className="mt-2 line-clamp-1 text-sm leading-5 text-gray-500">
+          <p className="mt-1 line-clamp-1 text-xs font-normal text-gray-400">
             {description}
           </p>
         )}
@@ -72,7 +72,7 @@ export default function FoodCard({
         {/* Bottom Bar: Price & Action */}
         <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
           <span className="text-lg font-bold text-[#ce1f2c]">
-            ${price}
+            ₹{price}
           </span>
 
           <button
