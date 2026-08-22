@@ -39,14 +39,14 @@ export default function FoodCard({
 
   return (
     <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-      {/* Expanded Image Container Height */}
+      {/* Image Container */}
       <div className="relative h-60 w-full overflow-hidden bg-gray-100">
         <Image
           src={image || "/placeholder.png"}
           alt={name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover"
         />
       </div>
 
