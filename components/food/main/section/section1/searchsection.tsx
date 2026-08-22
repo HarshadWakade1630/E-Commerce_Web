@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
 interface Food {
@@ -23,6 +23,7 @@ const QUICK_SEARCH_TAGS = ["Pizza", "Biryani", "Burger", "Paneer", "Sandwich"];
 export default function SearchSection({ foods = [] }: SearchSectionProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const [isPending, startTransition] = useTransition(); // Tracks page load state
   const router = useRouter();
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +55,11 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
 
     setQuery("");
     setSelectedIndex(-1);
-    router.push(`/food/search?q=${encodeURIComponent(finalQuery)}`);
+
+    // Wrap routing inside startTransition so isPending stays true until route loads
+    startTransition(() => {
+      router.push(`/food/search?q=${encodeURIComponent(finalQuery)}`);
+    });
   };
 
   const handleResultClick = (food: Food) => {
@@ -105,8 +110,18 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
   return (
     <section
       id="food-main"
-      className="mx-auto w-full max-w-[1920px] rounded-xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:rounded-2xl sm:p-7 md:p-[40px]"
+      className="relative mx-auto w-full max-w-[1920px] rounded-xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:rounded-2xl sm:p-7 md:p-[40px]"
     >
+      {/* Global Loading Overlay inside Search Section */}
+      {isPending && (
+        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center rounded-xl bg-white/80 backdrop-blur-sm sm:rounded-2xl">
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#ce1f2c] border-t-transparent" />
+          <p className="mt-3 text-sm font-semibold text-gray-700">
+            Searching for delicious food...
+          </p>
+        </div>
+      )}
+
       <h1 className="mb-4 text-xl font-bold tracking-tight text-gray-900 sm:mb-5 sm:text-2xl md:text-[28px]">
         Discover the best food near you
       </h1>
@@ -128,17 +143,18 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
                 setSelectedIndex(-1);
               }}
               onKeyDown={handleKeyDown}
+              disabled={isPending}
               placeholder="Search by name, category, section, price..."
-              className="h-12 w-full rounded-xl border border-[#ddd] pl-4 pr-10 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-[#ce1f2c] sm:h-14 sm:text-base"
+              className="h-12 w-full rounded-xl border border-[#ddd] pl-4 pr-10 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 focus:border-[#ce1f2c] disabled:opacity-50 sm:h-14 sm:text-base"
             />
-            {query && (
+            {query && !isPending && (
               <button
                 type="button"
                 onClick={() => {
                   setQuery("");
                   setSelectedIndex(-1);
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-gray-400 cursor-pointer hover:bg-gray-100 hover:text-gray-600"
               >
                 ✕
               </button>
@@ -147,9 +163,17 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
 
           <button
             type="submit"
-            className="h-12 shrink-0 rounded-xl bg-[#ce1f2c] px-5 text-sm font-semibold text-white transition hover:bg-[#cc2f3c] sm:h-14 sm:px-8 sm:text-base cursor-pointer"
+            disabled={isPending}
+            className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#ce1f2c] px-5 text-sm font-semibold text-white transition cursor-pointer hover:bg-[#cc2f3c] disabled:opacity-50 sm:h-14 sm:px-8 sm:text-base"
           >
-            Search
+            {isPending ? (
+              <>
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              "Search"
+            )}
           </button>
         </form>
 
@@ -160,11 +184,12 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
             <button
               key={tag}
               type="button"
+              disabled={isPending}
               onClick={() => {
                 setQuery(tag);
                 handleSearch(tag);
               }}
-              className="rounded-full bg-gray-100 px-3 py-1 font-medium text-gray-600 transition hover:bg-[#fef6f6] hover:text-[#ce1f2c] cursor-pointer"
+              className="rounded-full bg-gray-100 px-3 py-1 font-medium text-gray-600 transition cursor-pointer hover:bg-[#fef6f6] hover:text-[#ce1f2c] disabled:opacity-50"
             >
               {tag}
             </button>
@@ -172,21 +197,20 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
         </div>
 
         {/* Dropdown Results */}
-        {query.trim() && (
+        {query.trim() && !isPending && (
           <div className="absolute left-0 top-[60px] z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
-            {/* Header with conditional Back Button */}
-            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5 bg-gray-50/50">
+            <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/50 px-4 py-2.5">
               <button
                 type="button"
                 onClick={() => {
                   setQuery("");
                   setSelectedIndex(-1);
                 }}
-                className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-[#ce1f2c] transition cursor-pointer"
+                className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 transition cursor-pointer hover:text-[#ce1f2c]"
               >
                 <span>←</span> Back
               </button>
-              <span className="text-xs text-gray-400 font-medium">
+              <span className="text-xs font-medium text-gray-400">
                 {results.length} result{results.length !== 1 ? "s" : ""}
               </span>
             </div>
@@ -220,11 +244,9 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
                       <p className="truncate text-sm font-semibold text-gray-900">
                         {food.name}
                       </p>
-
                       <p className="mt-0.5 truncate text-xs text-gray-500">
                         {food.category} · {food.subsection} · {food.section}
                       </p>
-
                       <p className="mt-0.5 text-xs font-semibold text-[#ce1f2c]">
                         ₹{food.price}
                       </p>
