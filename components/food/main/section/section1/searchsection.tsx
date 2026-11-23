@@ -110,7 +110,7 @@ export default function SearchSection({ foods = [] }: SearchSectionProps) {
   return (
     <section
       id="food-main"
-      className="relative mx-auto w-full max-w-[1920px] rounded-xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:rounded-2xl sm:p-7 md:p-[40px]"
+      className="relative mx-auto mt-0.5 sm:mt-1 md:mt-2 w-full max-w-[1920px] rounded-xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:rounded-2xl sm:p-7 md:p-[40px]"
     >
       {/* Global Loading Overlay with Custom ChaoticOrbit Loader */}
       {isPending && (
