@@ -12,9 +12,9 @@ export default function TFooter() {
 
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Help</h4>
-                    <a href="/footer/support" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Support</a>
-                    <a href="/footer/FAQs" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">FAQs</a>
-                    <a href="/footer/contact" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Contact</a>
+                    <a href="/footer/help/support" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Support</a>
+                    <a href="/footer/help/faqs" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">FAQs</a>
+                    <a href="/footer/help/contact" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Contact</a>
                 </div>
 
                 <div className="footer-column">
