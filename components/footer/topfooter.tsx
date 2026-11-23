@@ -25,9 +25,9 @@ export default function TFooter() {
 
                 <div className="footer-column">
                     <h4 className="text-[14px] mb-[15px] text-white">Legal</h4>
-                    <a href="/footer/p_p" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Privacy Policy</a>
-                    <a href="/footer/terms" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Terms</a>
-                    <a href="/footer/security" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Security</a>
+                    <a href="/footer/legal/privacy_policy" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Privacy Policy</a>
+                    <a href="/footer/legal/terms" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Terms</a>
+                    <a href="/footer/legal/security" className="block text-[#aaa] size-[13px] mb-[8px] no-underline w-max hover:text-[#fff]">Security</a>
                 </div>
             </div>
 

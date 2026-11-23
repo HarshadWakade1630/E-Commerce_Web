@@ -105,7 +105,7 @@ export default function SecurityPage() {
       <section className="border-t border-red-200 bg-white">
         <div className="mx-auto max-w-4xl px-6 py-14 text-center">
           <blockquote className="text-lg italic leading-8 text-gray-700 sm:text-xl">
-            Security is not just a feature—it's a commitment to protecting every
+            Security is not just a feature—its a commitment to protecting every
             user who trusts our platform.
           </blockquote>
 
