@@ -4,6 +4,7 @@ export default function AboutPage(){
     return(
         <>
         <main className="min-h-screen bg-red-50">
+  {/* Hero */}
   <section className="border-b border-red-200 bg-white">
     <div className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-600 sm:text-sm">
@@ -22,6 +23,7 @@ export default function AboutPage(){
     </div>
   </section>
 
+  {/* Article */}
   <article className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div className="rounded-xl border border-red-200 bg-white p-6 shadow-sm sm:p-8 md:p-10 lg:p-14">
       <h2 className="mb-6 text-2xl font-bold text-black sm:text-3xl">
