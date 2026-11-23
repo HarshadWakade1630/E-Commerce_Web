@@ -108,7 +108,7 @@ export default function FoodModal({ item, isOpen, onClose }: FoodModalProps) {
           transform: `translateY(${dragY}px)`,
           transition: isDragging ? 'none' : 'transform 0.2s cubic-bezier(0, 0, 0.2, 1)',
         }}
-        className="relative z-10 flex max-h-[90vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl bg-white shadow-2xl transition-all sm:max-h-[85vh] sm:rounded-2xl"
+        className="relative z-10 flex max-h-[90vh] w-full max-w-lg flex-col overflow-hidden rounded bg-white shadow-2xl transition-all sm:max-h-[85vh] sm:rounded"
       >
         {/* Mobile/Tablet Swipe Down Handle Indicator */}
         <div className="flex w-full justify-center pt-2.5 pb-1 sm:hidden">
